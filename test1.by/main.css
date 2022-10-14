@@ -89,14 +89,13 @@ form button:active{
     background-color: green;
 }
 
-.error{
+.error, .login-error{
     margin-top: 30px;
     color: #af0c0c;
 }
 
-.success{
-    margin-top: 30px;
-    color: green;
+.error-fields {
+   border: 2px solid #ff4332;
 }
 
 .content header a{
@@ -119,4 +118,8 @@ form button:active{
 
 .content main{
     margin-top: 50px;
+}
+
+.msg-none {
+    display: none;
 }

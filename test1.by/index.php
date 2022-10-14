@@ -1,10 +1,3 @@
-<?php require("login.class.php"); ?>
-<?php
-    if(isset($_POST['submit'])) {
-        $user = new LoginUser($_POST['login'], $_POST['password']);
-    }
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +6,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form>
         <h2>Login form</h2>
         <h4>All fields are <span>required</span></h4>
 
@@ -23,11 +16,17 @@
         <label for="">Password</label>
         <input type="password" name="password" placeholder="Enter your password">
 
-        <button type="submit" name="submit">Log in</button>
+        <button type="submit" name="submit" class="login-btn">Log in</button>
         <h4>Don't have an account? - <a href="/register.php">registration</a>!</h4>
 
-        <p class="error"><?php echo @$user->error ?></p>
-        <p class="success"><?php echo @$user->success ?></p>
+        <p class="login-error msg-none">jhfj</p>
     </form>
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="main.js"></script>
+
 </body>
 </html>
+
+<!--paula_123-->
+<!--paula123-->
