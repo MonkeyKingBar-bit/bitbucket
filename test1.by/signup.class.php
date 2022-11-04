@@ -29,7 +29,7 @@ class RegisterUser {
             "password" => $this->encrypted_password,
         ];
 
-        if($this->checkFieldValues()){
+        if($this->checkFieldValues()) {
             if ($this->raw_password !== $this->password_confirm) {
                 $response = [
                     "status" => false,
@@ -58,30 +58,31 @@ class RegisterUser {
             echo json_encode($response);
             die();
         }
-        if (!preg_match("/^[a-z0-9_-]{6,22}$/", $this->login)) {
+        if (!preg_match("/^[a-zA-Z]{2,}$/", $this->username)) {
             $response = [
                 "status" => false,
                 "type" => 1,
-                "message" => 'Login must consist of from 6 to 22 length, _, letters and digits!',
+                "message" => 'Username must must have more than 2 chars and letters!',
+                "fields" => ["username"]
+            ];
+            echo json_encode($response);
+            die();
+        } elseif (!preg_match("/^[a-zA-Z0-9]{6,}$/", $this->login)) {
+            $response = [
+                "status" => false,
+                "type" => 1,
+                "message" => 'Login must have more than 6 chars, letters and digits!',
                 "fields" => ["login"]
             ];
             echo json_encode($response);
             die();
-        } elseif (!preg_match("/^[a-z0-9]{6,22}$/", $this->raw_password)) {
+        }
+        if (!preg_match("/^(?=.*\d)[a-zA-Z].{5,}(?!.*\s).*$/", $this->raw_password)) {
             $response = [
                 "status" => false,
                 "type" => 1,
-                "message" => 'Password must consist of from 6 to 22 length, letters and digits!',
+                "message" => 'Password must have more than 6 chars, letters and digits!',
                 "fields" => ["password"]
-            ];
-            echo json_encode($response);
-            die();
-        } elseif (!preg_match("/^[a-zA-Z]{2,22}$/", $this->username)) {
-            $response = [
-                "status" => false,
-                "type" => 1,
-                "message" => 'Username must consist of from 2 to 22 length and letters!',
-                "fields" => ["username"]
             ];
             echo json_encode($response);
             die();

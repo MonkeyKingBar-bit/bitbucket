@@ -10,8 +10,8 @@ $('.login-btn').click(function (e) {
         type: 'POST',
         dataType: 'json',
         data: {
-            login: login,
-            password: password,
+            login: login.trim(),
+            password: password.trim(),
         },
         success (data) {
             if (data.status) {
@@ -40,11 +40,11 @@ $('.register-btn').click(function (e) {
         password_confirm = $('input[name="password_confirm"]').val();
 
     let formData = new FormData();
-    formData.append('username', username);
-    formData.append('login', login);
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('password_confirm', password_confirm);
+    formData.append('username', username.trim());
+    formData.append('login', login.trim());
+    formData.append('email', email.trim());
+    formData.append('password', password.trim());
+    formData.append('password_confirm', password_confirm.trim());
 
     $.ajax({
         url: 'signup.class.php',
