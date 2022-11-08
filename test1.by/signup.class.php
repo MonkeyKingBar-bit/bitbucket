@@ -10,7 +10,7 @@ class RegisterUser {
     private $raw_password;
     private $password_confirm;
     private $encrypted_password;
-    private $storage = "db/data.json";
+    private $storage = "data.json";
     private $stored_users; // array
     private $new_user; // array
 

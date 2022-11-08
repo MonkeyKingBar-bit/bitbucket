@@ -5,7 +5,7 @@ $user = new LoginUser($_POST['login'], $_POST['password']);
 class LoginUser {
     private $login;
     private $password;
-    private $storage = "db/data.json";
+    private $storage = "data.json";
     private $stored_users;
 
     public function __construct($login, $password){
